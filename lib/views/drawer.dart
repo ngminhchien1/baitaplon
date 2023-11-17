@@ -1,3 +1,6 @@
+import 'package:btl/views/login_page.dart';
+import 'package:btl/views/manage.dart';
+import 'package:btl/views/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class SideBArMenu extends StatelessWidget {
@@ -8,6 +11,9 @@ class SideBArMenu extends StatelessWidget {
     return Drawer(
       child: ListView(children: [
         const UserAccountsDrawerHeader(
+          decoration: BoxDecoration(
+            color: Colors.green
+          ),
           accountName: Text("Username"),
           accountEmail: Text("099999123456"),
           currentAccountPicture: ClipOval(
@@ -19,18 +25,37 @@ class SideBArMenu extends StatelessWidget {
         ListTile(
           title: const Text('Thông tin cá nhân'),
           onTap: () {},
-          leading: const Icon(Icons.person),
+          leading: const Icon(Icons.badge_outlined),
         ),
         ListTile(
-          title: const Text("Cài đặt"),
+          title: const Text("Quản lý"),
+          leading: const Icon(Icons.currency_exchange),
+          onTap: () {
+            Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ManageBar(),
+                      ));
+          },
+        ),
+        ListTile(
+          title: const Text("Quỹ"),
+          leading: const Icon(Icons.analytics_outlined),
+          onTap: () {},
+        ),
+        ListTile(
+          title: Text("Cài đặt"),
           leading: const Icon(Icons.settings),
           onTap: () {},
         ),
         ListTile(
           title: const Text("Đăng xuất"),
           leading: const Icon(Icons.login),
-          onTap: () {},
-        )
+          onTap: () {
+            Navigator.push(context, 
+            MaterialPageRoute(builder: (context) => const LoginPage(),));
+          },
+        ),
       ]),
     );
   }

@@ -17,21 +17,20 @@ class _MainPageState extends State<MainPage> {
       drawer: const SideBArMenu(),
       appBar: AppBar(
         title: const Text("Trang chủ"),
+        backgroundColor: Colors.green,
       ),
       body: SafeArea(
           child: Center(
         child: Column(
           children: [
             ElevatedButton(onPressed: () {}, child: const Text("Nộp tiền")),
-            ElevatedButton(onPressed: () {}, child: const Text("Xem thong tin"))
+            ElevatedButton(onPressed: () {}, child: const Text("Xem thông tin"))
           ],
         ),
       )),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {}, child: const Icon(Icons.qr_code)),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.green,
           elevation: 10,
           onTap: (index) {
             setState(() {
@@ -43,19 +42,19 @@ class _MainPageState extends State<MainPage> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: "Trang chủ",
-                backgroundColor: Colors.blue),
+                backgroundColor: Colors.green),
             BottomNavigationBarItem(
                 icon: Icon(Icons.chat),
                 label: "Thông báo",
-                backgroundColor: Colors.blue),
+                backgroundColor: Colors.green),
             BottomNavigationBarItem(
                 icon: Icon(Icons.heart_broken),
                 label: "Yêu thích",
-                backgroundColor: Colors.blue),
+                backgroundColor: Colors.green),
             BottomNavigationBarItem(
                 icon: Icon(Icons.search),
                 label: "Tra cứu",
-                backgroundColor: Colors.blue),
+                backgroundColor: Colors.green),
           ]),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:btl/views/component/button_signup.dart';
 import 'package:btl/views/component/text_field.dart';
+import 'package:btl/views/login_page.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatefulWidget {
@@ -14,9 +15,10 @@ class _MyWidgetState extends State<SignInPage> {
   Widget build(BuildContext context) {
     final TextEditingController usernameController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
+    final TextEditingController confirmPasswordController = TextEditingController();
     final TextEditingController emailController = TextEditingController();
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.green,
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
@@ -32,7 +34,7 @@ class _MyWidgetState extends State<SignInPage> {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(25.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -48,32 +50,65 @@ class _MyWidgetState extends State<SignInPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Text("Mat khau"),
+                    padding: const EdgeInsets.all(25.0),
+                    child: Text("Mật Khẩu"),
                   ),
                 ],
               ),
               MyTextField(
-                  controller: passwordController,
-                  hintText: "Nhap mau khau",
+                  controller: confirmPasswordController,
+                  hintText: "Nhập mật khẩu",
+                  obscureText: true),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(padding: const EdgeInsets.all(25.0),
+                  child: Text("Nhập lại mật khẩu"),
+                  ),
+                ],
+              ),
+              MyTextField(
+                  controller: passwordController, 
+                  hintText: "Nhập mật khẩu", 
                   obscureText: true),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(25.0),
                     child: Text("Email"),
                   ),
                 ],
               ),
               MyTextField(
                   controller: emailController,
-                  hintText: "Nhap Email",
+                  hintText: "Nhập email",
                   obscureText: false),
               SizedBox(
                 height: 20,
               ),
-              MyButton(onTap: () {})
+              MyButton(onTap: () {}),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Đã có tài khoản ?",
+                  style: Theme.of(context).textTheme.bodyMedium),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
+                    child: Text(" Đăng nhập ngay !", 
+                    style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: Colors.white,),
+                  )),
+                ],
+                
+              )
             ],
           ),
         ),

@@ -45,7 +45,7 @@ class LoginPage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.green,
       body: SafeArea(
           child: Center(
         child: SingleChildScrollView(
@@ -57,22 +57,19 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              const Icon(
-                Icons.lock,
-                size: 100,
-              ),
+              
               const SizedBox(
                 height: 50,
               ),
               Text(
-                "Welcome back you've been missed!",
-                style: TextStyle(color: Colors.grey[700]),
+                "QUẢN LÝ NHÂN KHẨU",
+                style: TextStyle( fontSize: 40.0),
               ),
               const SizedBox(
                 height: 10,
               ),
               MyTextField(
-                hintText: "Username",
+                hintText: "Tên đăng nhập",
                 obscureText: false,
                 controller: userNameController,
               ),
@@ -81,7 +78,7 @@ class LoginPage extends StatelessWidget {
               ),
               MyTextField(
                   controller: passwordController,
-                  hintText: "Password",
+                  hintText: "Mật khẩu",
                   obscureText: true),
               const SizedBox(height: 10),
 
@@ -92,7 +89,7 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      'Forgot Password?',
+                      'Quên mật khẩu?',
                       style: TextStyle(color: Colors.grey[600]),
                     ),
                   ],
@@ -103,16 +100,17 @@ class LoginPage extends StatelessWidget {
               ),
               MyButton(
                 onTap: () {
-                  // _login();
+                  _login();
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const MainPage(),
                       ));
                 },
+                
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -123,16 +121,7 @@ class LoginPage extends StatelessWidget {
                       thickness: 0.5,
                       color: Colors.grey[400],
                     )),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        "Or continue with",
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(color: Colors.grey.shade700),
-                      ),
-                    ),
+                    
                     Expanded(
                         child: Divider(
                       thickness: 0.5,
@@ -144,16 +133,7 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MySquare(imagePath: "asset/images/apple.png"),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  MySquare(imagePath: "asset/images/google.png")
-                ],
-              ),
+             
               const SizedBox(
                 height: 40,
               ),
@@ -173,11 +153,11 @@ class LoginPage extends StatelessWidget {
                           ));
                     },
                     child: Text(
-                      "Đăng kí ngay",
+                      "Đăng kí ngay !",
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium!
-                          .copyWith(color: Colors.blue),
+                          .copyWith(color: Colors.white),
                     ),
                   )
                 ],
